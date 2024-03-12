@@ -253,16 +253,14 @@ public class Controls {
                 // Check if the new position is greater than the limit
                 if (temp > 122){
                     // if so, it will calculate the difference and then subtract to make a go back effect
-                    int diff = temp - 122;
-                    temp = 122 - diff;
+                    temp -= 26;
                     // Assign the new value to the array
                     character[i] = (char) temp;
                     
                 }
                 else if (temp < 97) {
                     // Check if the new position is less than the limit
-                    int diff = 97 - temp;
-                    temp = 97 + diff;
+                    temp += 26;
                     // Assign the new value to the array
                     character[i] = (char) temp;
                 }
@@ -271,22 +269,21 @@ public class Controls {
                     character[i] = (char) temp;
                 
             }
+            // Checks if the numbers is between 65 and 90
             else if (character[i] > 64 && character[i] < 91) {
                 
                 int temp = character[i] + position; // Stores the new char code
                 
                 if (temp > 90){
-                    // Check if the new position is greater than the limit
-                    int diff = temp - 90; 
-                    temp = 90 - diff;
+
+                    temp -= 26;
                     // Assign the new value to the array
                     character[i] = (char) temp;
                     
                 }
                 else if (temp < 65) {
-                    // Check if the new position is less than the limit
-                    int diff = 65 - temp;
-                    temp = 65 + diff;
+
+                    temp += 26;
                     // Assign the new value to the array
                     character[i] = (char) temp;
                 }
@@ -344,7 +341,7 @@ public class Controls {
         int randomChar = random.nextInt(27) + 64;
 
         // Assigning a randomNumber variable for the Capital Letter
-        int randomChar2 = randomChar - 32;
+        int randomChar2 = randomChar + 32;
         // Our game has a limited attempts
         int attempts = 1;
         // Boolean value to veirify if the User guessed the number
@@ -360,6 +357,7 @@ public class Controls {
                 System.out.println("You Win!");
                 System.out.println("You guessed the letter in " + attempts + " attempts");
                 guessed = true; // assign true to the boolean guessed, used in the end of this code
+                scan.nextLine();
                 break; // If he guess, it breaks the while loop 
                 
             }
@@ -390,7 +388,8 @@ public class Controls {
         
         if (!guessed) { // If the boolean variable has not been changed, then:
             System.out.println("Game Over!");
-            System.out.println("The Letter was " + randomChar);
+            System.out.println("The Letter was " + (char)randomChar);
+            scan.nextLine();
         }
         
         
@@ -416,6 +415,7 @@ public class Controls {
                 System.out.println("You Win!");
                 System.out.println("You guessed the letter in " + attempts + " attempts");
                 guessed = true; // Assign 'true' to the boolean used at the end of this code
+                scan.nextLine();
                 break; // Breaks the loop
             }
             // If it is wrong, it will give some hints for the user
@@ -436,7 +436,8 @@ public class Controls {
         // If the guessed boolean variable has not been changed, this code will display the message below
         if (!guessed) {
             System.out.println("Game Over!");
-            System.out.println("The Letter was \"" + randomChar + "\"");
+            System.out.println("The Letter was \"" + (char)randomChar + "\"");
+            scan.nextLine();
         }
         
         
