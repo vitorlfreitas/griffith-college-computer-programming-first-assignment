@@ -109,10 +109,14 @@ public class Lab {
         while (true) {
             try { // It will handle possible problems 
                 System.out.print("Enter your walls width in meters: ");
-                double width = scan.nextDouble(); // Setting the variable width 
+                double width = scan.nextDouble(); // Setting the variable width
+                
+                if (width <= 0) throw new InputMismatchException("Width Cannot be less or equal to 0");
 
                 System.out.print("Enter your walls height in meters: ");
                 double height = scan.nextDouble(); // Setting the variable height 
+                
+                if (height <= 0) throw new InputMismatchException("Width Cannot be less or equal to 0");
 
                 double areaOfWall = width * height; // Calculating the area of the wall
 
